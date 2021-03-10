@@ -3,7 +3,6 @@ import '../assets/css/Tasks.css';
 import { ReactComponent as Trash } from '../assets/icons/icon-trash.svg';
 import { ReactComponent as Disk } from '../assets/icons/icon-disk.svg';
 import { ReactComponent as Pen } from '../assets/icons/icon-pen.svg';
-import { Button, Input, Header, Grid, GridColumn, Card } from 'semantic-ui-react';
 
 
 
@@ -20,15 +19,15 @@ const Tasks = (props) => {
         setEdittingTask(true);
     }
     return (
-        <div className="tasks" >
-            <table className="table">
-                <thead>
+        <div className="col-12" >
+            <table className="table bg-color rounded">
+                <thead >
                     <tr>
                         <th>
-                            id
+                            Task
                     </th>
                         <th>
-                            Task
+                            Options
                     </th>
                     </tr>
                 </thead>
@@ -44,12 +43,17 @@ const Tasks = (props) => {
                                         {(() => {
                                             if (edittingTask === true) {
                                                 return <div>
-                                                    <Input onChange={handleChange} /> <button onClick={() => { props.editTask(task.id, task.text, editText, setEdittingTask(false)) }}><Disk></Disk></button>
+                                                    <div className="row">
+                                                        <div className="col-10"><input onChange={handleChange} className="form-control" /></div>
+                                                        <div className="col-2 text-left"> <button className=" btn-light" onClick={() => { props.editTask(task.id, task.text, editText, setEdittingTask(false)) }}><Disk></Disk></button></div>
+
+                                                    </div>
+                                                    
                                                 </div>
                                             } else {
                                                 return <div>
-                                                    <button onClick={edditingTask} className="mr"><Pen></Pen></button>
-                                                    <button onClick={() => { props.removeTask(task.id) }} className="ml"> <Trash></Trash></button>
+                                                    <button onClick={edditingTask} className="mr btn-light rounded"><Pen></Pen></button>
+                                                    <button onClick={() => { props.removeTask(task.id) }} className="ml btn-light rounded"> <Trash></Trash></button>
                                                 </div>
                                             }
                                         })()}

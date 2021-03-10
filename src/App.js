@@ -2,8 +2,9 @@
 import { useState } from 'react';
 import './App.css';
 import Tasks from './components/Tasks';
-// import semantic from 'semantic-ui-css'
-import { Button, Input, Header, Grid, GridColumn, Card } from 'semantic-ui-react';
+import 'bootstrap/dist/css/bootstrap.css';
+
+// import { Button, Input, Header, Grid, GridColumn, Card } from 'semantic-ui-react';
 
 
 function App() {
@@ -50,26 +51,31 @@ function App() {
   return (
 
     <div className="App">
-      <Header as='h1'>LKMX - Front-End</Header>
+      <h1>LKMX - Front-End</h1>
 
       <div className="bg-color">
-      <Grid centered>
-        <Grid.Row>
+      <div className="container">
+        <div className="row">
 
-          <GridColumn width={12} textAlign='center'>
-            <Card centered fluid className="p-2">
-              <div className="left">
-              <Header as='h2' className="p-2">To Do List</Header>
+          <div className="col-12">
+            <div  className="card p-2">
+              <div className="">
+              <h2 className="p-2">To Do List</h2>
 
               </div>
-              <div >
-                <Input onChange={handleChange} /> <Button onClick={addTask} primary >Agregar</Button>
+              <div className="row p-2 m-0">
+                <div className="col-10">
+                <input onChange={handleChange} className="form-control" /> 
+                </div>
+                <div className="col-2 text-left">
+               <button onClick={addTask} className="btn btn-primary" >Agregar</button>
+                </div>
               </div>
               <Tasks tasks={tasks} removeTask={removeTask} editTask={editTask} />
-            </Card>
-          </GridColumn>
-        </Grid.Row>
-      </Grid>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </div>
   );
