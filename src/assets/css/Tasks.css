@@ -1,0 +1,18 @@
+.tasks{
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    background-color:#F4F6F6;
+}
+
+.table{
+    width: 100%;
+}
+
+.ml{
+    margin-left: 2px;
+}
+
+.mr{
+    margin-right: 2px;
+}
